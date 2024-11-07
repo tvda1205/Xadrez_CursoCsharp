@@ -14,9 +14,9 @@ namespace Xadrez_Curso.tabuleiro
 
         public Tabuleiro tabuleiro { get; protected set; }
 
-        public Peca(Posicao posicao, Cor cor, Tabuleiro tabuleiro)
+        public Peca( Cor cor, Tabuleiro tabuleiro)
         {
-            Posicao = posicao;
+            Posicao = null;
             Cor = cor;
             this.tabuleiro = tabuleiro;
             QtdeMovimentos = 0;

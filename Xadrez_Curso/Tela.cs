@@ -18,14 +18,13 @@ namespace Xadrez_Curso
                 {
                     if(tab.peca(i,j) == null)
                     {
-                        Console.WriteLine(" , ");
+                        Console.Write("- ");
                     } else
                     {
-                        Console.WriteLine(tab.peca(i,j) + " ")S;
+                        Console.Write(tab.peca(i,j) + " ");
                     }
-
-                    Console.WriteLine();
                 }
+                Console.WriteLine();
             }
 
         }

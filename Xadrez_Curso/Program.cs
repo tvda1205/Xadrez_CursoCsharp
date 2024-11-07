@@ -1,18 +1,23 @@
-﻿
+﻿using Xadrez_Curso.Xadrez;
 using Xadrez_Curso.tabuleiro;
+
 
 namespace Xadrez_Curso
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Posicao p;
+            Tabuleiro tab = new Tabuleiro(8, 8);
 
-            p = new Posicao(3, 4);
+            tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(0, 0));
+            tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
+            tab.colocarPeca(new Rei(Cor.Preta, tab), new Posicao(2, 4));
 
-            Console.WriteLine($"Posição {p}");
-            Console.WriteLine();
+            Tela.ImprimirTabuleiro(tab);
+            Console.ReadLine();
+
         }
+
     }
 }
