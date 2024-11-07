@@ -19,5 +19,10 @@ namespace Xadrez_Curso.tabuleiro
             this.coluna = coluna;
             pecas = new Peca[linha, coluna];
         }
+
+        public Peca peca (int linha, int coluna)
+        {
+            return pecas[linha, coluna];
+        }
     }
 }
