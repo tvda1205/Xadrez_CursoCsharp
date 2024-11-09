@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using Xadrez_Curso.tabuleiro;
 
 namespace Xadrez_Curso.Xadrez
 {
-    class Torre : Peca
+    class Bispo : Peca
     {
 
-        public Torre( Tabuleiro tabuleiro , Cor cor) : base(tabuleiro , cor)
+        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
-
         }
 
         public override string ToString()
         {
-            return "T";
+            return "B";
         }
 
         private bool podeMover(Posicao pos)
@@ -33,8 +31,8 @@ namespace Xadrez_Curso.Xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            // acima
-            pos.definirValores(Posicao.linha - 1, Posicao.coluna);
+            // NO
+            pos.definirValores(Posicao.linha - 1, Posicao.coluna - 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -42,11 +40,11 @@ namespace Xadrez_Curso.Xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
 
-            // abaixo
-            pos.definirValores(Posicao.linha + 1, Posicao.coluna);
+            // NE
+            pos.definirValores(Posicao.linha - 1, Posicao.coluna + 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -54,11 +52,11 @@ namespace Xadrez_Curso.Xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
 
-            // direita
-            pos.definirValores(Posicao.linha, Posicao.coluna + 1);
+            // SE
+            pos.definirValores(Posicao.linha + 1, Posicao.coluna + 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -66,11 +64,11 @@ namespace Xadrez_Curso.Xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
 
-            // esquerda
-            pos.definirValores(Posicao.linha, Posicao.coluna - 1);
+            // SO
+            pos.definirValores(Posicao.linha + 1, Posicao.coluna - 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -78,11 +76,12 @@ namespace Xadrez_Curso.Xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
 
             return mat;
         }
+
 
 
     }
